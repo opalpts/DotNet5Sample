@@ -1,0 +1,95 @@
+﻿@model IEnumerable<DotNet5Sample.ViewModels.DetailViewModels.ProductViewModel>
+
+<script type="text/javascript" src="~/lib/jquery/jquery.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="~/lib/datatables/js/jquery.dataTables.js" defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<input type="text" id="product_id" name="product_id" style="display:none" />
+<input type="text" id="product_name" name="product_name" placeholder="Product name" style="margin-right:5px" />
+<input type="text" id="qnt" name="qnt" placeholder="Qnt" style="margin-right:5px" />
+<input type="text" id="price" name="price" placeholder="Price" style="margin-right:5px" />
+
+<button id="btnupdata" class="btn btn-success" style="margin-right:5px">Updata</button>
+<button id="btnsave" class="btn btn-primary" style="margin-left:5px">Save</button>
+
+<br />
+<br />
+<table id="table_product" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product_Name</th>
+            <th>Qnt</th>
+            <th>Price</th>
+            <th>Tool</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        datatable_product();
+    });
+    function datatable_product() {
+        $('#table_product').DataTable({
+            "ajax": {
+                url: '/Product/GetProduct',
+                type: 'GET',
+                "dataSrc": ''
+            },
+            searching: false,
+            ordering: true,
+            columns: [
+                {
+                    data: 'Id',
+                    width: "50px",
+                    className: 'text-center align-middle',
+                },
+                {
+                    data: 'Product_Name',
+                    width: "150px",
+                    className: 'text-center align-middle'
+                },
+                {
+                    data: 'Qnt',
+                    width: "150px",
+                    className: 'text-center align-middle'
+                },
+                {
+                    data: 'Price',
+                    width: "150px",
+                    className: 'text-center align-middle'
+                },
+                {
+                    data: 'Id',
+                    width: "150px",
+                    className: 'text-center align-middle',
+                    render: function (data, type, row, meta) {
+                        return "<button class='btn btn-primary' style='margin-right:5px' onclick=Edit("+ JSON.stringify(row) +")>Edit</button>" +
+                            "<button class='btn btn-danger' style='margin-left:5px' onclick=Delete(" + JSON.stringify(row) +")>Delete</button>";
+                    }
+                }
+            ]
+        });
+    }
+    function Edit(product) {
+        $('#product_id').val(product.Id);
+        $('#product_name').val(product.Product_Name);
+        $('#qnt').val(product.Qnt);
+        $('#price').val(product.Price);
+    }
+    function Delete(product) {
+        console.log("test");
+        $.Delete('/Delete?id' + product.Id, function () {
+            alert("Delete");
+            ReloadGrid();
+        });
+    }
+    function ReloadGrid() {
+        $('#table_product').DataTable().clear();
+        $('#table_product').DataTable().ajax.reload();
+    }
+
+</script>

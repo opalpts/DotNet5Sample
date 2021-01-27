@@ -1,0 +1,15 @@
+D:\DotNet5Sample\DotNet5Sample.Core\bin\Debug\net5.0\DotNet5Sample.Core.deps.json
+D:\DotNet5Sample\DotNet5Sample.Core\bin\Debug\net5.0\DotNet5Sample.Core.runtimeconfig.json
+D:\DotNet5Sample\DotNet5Sample.Core\bin\Debug\net5.0\DotNet5Sample.Core.runtimeconfig.dev.json
+D:\DotNet5Sample\DotNet5Sample.Core\bin\Debug\net5.0\DotNet5Sample.Core.dll
+D:\DotNet5Sample\DotNet5Sample.Core\bin\Debug\net5.0\ref\DotNet5Sample.Core.dll
+D:\DotNet5Sample\DotNet5Sample.Core\bin\Debug\net5.0\DotNet5Sample.Core.pdb
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.AssemblyInfoInputs.cache
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.AssemblyInfo.cs
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.csproj.CoreCompileInputs.cache
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.dll
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\ref\DotNet5Sample.Core.dll
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.pdb
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.genruntimeconfig.cache
+D:\DotNet5Sample\DotNet5Sample.Core\obj\Debug\net5.0\DotNet5Sample.Core.csprojAssemblyReference.cache
