@@ -17,7 +17,6 @@ namespace DotNet5Sample.Core.Repositories
         {
             var query = new Product
             {
-                Id = product.Id,
                 Product_Name = product.Product_Name,
                 Qnt = product.Qnt,
                 Price = product.Price

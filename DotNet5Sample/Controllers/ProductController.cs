@@ -36,33 +36,41 @@ namespace DotNet5Sample.Controllers
             }
             return View(data);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Product_Name,Qnt,Price")] DetailViewModels.ProductViewModel product)
+        [HttpPost,ActionName("Create")]
+        public string Create([Bind("Product_Name,Qnt,Price")] DetailViewModels.ProductViewModel product)
         {
             if (ModelState.IsValid)
             {
                 var data = _product.Create(product);
                 if (data == 1)
                 {
-                    return RedirectToAction(nameof(Index));
+                    return "sucess";
                 }
-
             }
-            return View(product);
+            return "false";
         }
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public string DeleteConfirmed(int id)
         {
-            if (id == null)
+            var data = _product.Delete(id);
+            if (data == 1)
             {
-                return NotFound();
+                return "sucess";
             }
-
-            var product = _product.Delete(id);
-            var sucess = "sucess";
-            return View(product);
+            return "false";
+        }
+        [HttpPost, ActionName("Update")]
+        public string Update([Bind("Id,Product_Name,Qnt,Price")] DetailViewModels.ProductViewModel product)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = _product.Update(product);
+                if (data == 1)
+                {
+                    return "sucess";
+                }
+            }
+            return "false";
         }
     }
 }

@@ -10,8 +10,8 @@
 <input type="text" id="qnt" name="qnt" placeholder="Qnt" style="margin-right:5px" />
 <input type="text" id="price" name="price" placeholder="Price" style="margin-right:5px" />
 
-<button id="btnupdata" class="btn btn-success" style="margin-right:5px">Updata</button>
-<button id="btnsave" class="btn btn-primary" style="margin-left:5px">Save</button>
+<button id="btnupdata" class="btn btn-success" style="margin-right:5px" onclick=Update()>Update</button>
+<button id="btnsave" class="btn btn-primary" style="margin-left:5px" onclick=Create()>Save</button>
 
 <br />
 <br />
@@ -32,6 +32,12 @@
     $(document).ready(function () {
         datatable_product();
     });
+
+    function ReloadGrid() {
+        $('#table_product').DataTable().clear();
+        $('#table_product').DataTable().ajax.reload();
+    }
+
     function datatable_product() {
         $('#table_product').DataTable({
             "ajax": {
@@ -74,22 +80,65 @@
             ]
         });
     }
+
     function Edit(product) {
         $('#product_id').val(product.Id);
         $('#product_name').val(product.Product_Name);
         $('#qnt').val(product.Qnt);
         $('#price').val(product.Price);
     }
+
     function Delete(product) {
-        console.log("test");
-        $.Delete('/Delete?id' + product.Id, function () {
-            alert("Delete");
-            ReloadGrid();
+        var productId = product.Id;
+        $.ajax({
+            url: "Product/Delete",
+            type: "POST",
+            data: { id : productId },
+            success: function (data) {
+                alert(data);
+                ReloadGrid();
+            }
         });
     }
-    function ReloadGrid() {
-        $('#table_product').DataTable().clear();
-        $('#table_product').DataTable().ajax.reload();
+    
+    function Create() {
+        var product_name = $('#product_name').val();
+        var qnt = $('#qnt').val();
+        var price = $('#price').val();
+        console.log(product_name);
+        $.ajax({
+            url: "Product/Create",
+            type: "POST",
+            data: { Product_Name: product_name, Qnt: qnt, Price: price },
+            success: function (data) {
+                alert(data);
+                ReloadGrid();
+                $('#product_id').val('');
+                $('#product_name').val('');
+                $('#qnt').val('');
+                $('#price').val('');
+            }
+        });
+    }
+    function Update() {
+        var product_id = $('#product_id').val();
+        var product_name = $('#product_name').val();
+        var qnt = $('#qnt').val();
+        var price = $('#price').val();
+        console.log(product_name);
+        $.ajax({
+            url: "Product/Update",
+            type: "POST",
+            data: { Id: product_id, Product_Name: product_name, Qnt: qnt, Price: price },
+            success: function (data) {
+                alert(data);
+                ReloadGrid();
+                $('#product_id').val('');
+                $('#product_name').val('');
+                $('#qnt').val('');
+                $('#price').val('');
+            }
+        });
     }
 
 </script>
