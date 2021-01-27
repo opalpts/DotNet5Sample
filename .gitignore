@@ -1,3 +1,6 @@
 .vs/
 DotNet5Sample/bin
 DotNet5Sample/obj
+
+DotNet5Sample.Core/bin
+DotNet5Sample.Core/obj
