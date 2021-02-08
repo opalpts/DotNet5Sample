@@ -118,7 +118,10 @@
   width: 60%; }
 
 .tbpass {
-  padding-left: 65px !important; }
+  padding-left: 10px !important; }
+
+.table thead th {
+  border-bottom: 1px solid #dee2e6 !important; }
 
 .tabledetail thead {
   background-color: #f8f8f9; }

@@ -98,23 +98,33 @@
 
     //table
     .tbpass{
-        padding-left: 65px !important;
+        padding-left: 10px !important;
     }
 
-    .tabledetail{
-        thead{
-            background-color: $gary-background;
+    .table {
+        thead {
             th{
-            border-top: none;
-            text-align: center;
+                border-bottom: 1px solid #dee2e6 !important;
             }
         }
-        tbody{
-            td{
+    }
+
+    .tabledetail {
+        thead {
+            background-color: $gary-background;
+
+            th {
+                border-top: none;
+                text-align: center;
+            }
+        }
+
+        tbody {
+            td {
                 text-align: center;
                 vertical-align: middle !important;
-            }  
-        } 
+            }
+        }
     }
 
     .table-borderless {

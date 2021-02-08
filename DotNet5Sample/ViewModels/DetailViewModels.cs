@@ -6,6 +6,13 @@ namespace DotNet5Sample.ViewModels
     public class DetailViewModels
     {
         public List<ProductViewModel> Products { get; set; }
+        public class OfferViewModel
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+            public string version { get; set; }
+            public bool approve { get; set; }
+        }
         public class ProductViewModel
         {
             public int Id { get; set; }
