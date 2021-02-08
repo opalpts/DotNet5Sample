@@ -28,6 +28,7 @@ namespace DotNet5Sample
                 options.UseSqlServer(Configuration.GetConnectionString("StoreContext"));
             });
             services.AddScoped<IProducts, ProductsRepository>();
+            services.AddScoped<IHome, HomeRepository>();
             services.AddControllersWithViews().AddJsonOptions(o => {
                 o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 o.JsonSerializerOptions.PropertyNamingPolicy = null;
@@ -58,7 +59,7 @@ namespace DotNet5Sample
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Product}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

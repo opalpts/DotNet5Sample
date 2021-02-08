@@ -1,0 +1,655 @@
+﻿@model IEnumerable<DotNet5Sample.ViewModels.DetailViewModels.OfferViewModel>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="~/lib/jquery/jquery.js"></script>
+<script type="text/javascript" src="~/lib/datatables/js/jquery.dataTables.js" defer></script>
+<link href="~/css/datatable.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    @*<div class="container-fluid">
+            <div class="d-flex navbar mt-0 mb-0 pb-0 pt-1">
+                <ul class="nav">
+                    <img src="image/Logo.png" alt="EXIM" width="150px" height="30px" class="mt-3" />
+
+                    <li class="nav-item pl-5">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item pl-5">
+                        <a class="nav-link" href="#">ข้อมูลผลิตภัณฑ์</a>
+                    </li>
+                    <li class="nav-item pl-5">
+                        <a class="nav-link active" href="#">ข้อมูลบริษัท</a>
+                    </li>
+                    <li class="nav-item pl-5">
+                        <a class="nav-link" href="#">แบบประเมิน</a>
+                    </li>
+                    <li class="nav-item pl-5">
+                        <div class="position-relative">
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-bell-o" style="font-size: 25px;"></i>
+                                <span class="position-absolute top-0 start-50 translate-middle-x badge rounded-pill bg-danger font-bell"
+                                      style="right: 8;">9</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item pl-5 mt-1">
+                        <a class="nav-link btnuser" href="#">
+                            <i class="fa fa-fw fa-user"></i> nattarika.k
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+
+    <div class="font-header-menu mb-3">
+        <div class="font-topic">ข้อมูลบริษัท > Sanshin Electronics(Thailand)</div>
+    </div>
+
+    <div class="container-fluid">
+        <div class=" mb-3 mt-3" id="myTab">
+            <ul class="nav nav-tabs">
+                <li class="nav-item pl-0">
+                    <a class="nav-link active" id="nav1" href="#" onclick="page(1)">ข้อมูลบริษัท</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav2" href="#" onclick="page(2)">ภาพรวม</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="nav3" href="#" onclick="page(3)">งบการเงิน</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="data">
+        <div class="row mb-3 mt-3">
+            <div class="col-12 col-md-6">
+                <div class="card shadow-sm" style="height: 100%;">
+                    <div class="card-header bg-white">
+                        <div class="font-topic">
+                            ข้อมูลบริษัท
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="p-2">
+                            <table>
+                                <tr>
+                                    <td class="p-2" width="200px">
+                                        <i class="fa fa-building" style="font-size: 40px;"></i>
+                                    </td>
+                                    <td class="p-2 font-bold">
+                                        Electronics(Thailand)<br />
+                                        บริษัท ซันชิน ไทย จำกัด
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">เลขทะเบียนบุคคล</td>
+                                    <td class="p-2">1015553151171</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">วันที่จดทะเบียนบริษัท</td>
+                                    <td class="p-2">2 กุมภาพันธ์ 2564</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">ทุนจดทะเบียน</td>
+                                    <td class="p-2">20,000,000.00 บาท</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2" style="vertical-align: top;">ที่อยู่บริษัท</td>
+                                    <td class="p-2">
+                                        5/1 ชั้นที่ 4 และชั้นที่ 5 ซอย นนทบุรี 10 ตำบลบางสะกอ
+                                        อำเภอเมืองนนทบุรี
+                                        จังหวัดนนทบุรี 11000
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card shadow-sm" style="height: 100%;">
+                    <div class="card-header bg-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="font-topic">ข้อมูลประเมิน</div>
+                            <div>
+                                <select class="form-select shadow-sm rounded btnselect">
+                                    <option selected>แบบประเมินครั่งที่ 1</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="column-chart">
+                                <figure class="highcharts-figure p-0">
+                                    <div id="charts" style="height: 100%;width: 90%;"></div>
+                                </figure>
+                            </div>
+                            <div class="column-detail pt-5">
+                                <h5><strong>ข้อมูลที่ผ่านการประเมิน</strong></h5><br />
+                                <i class="fa fa-circle"
+                                   style="font-size: 10px;color: #ff3a62;"></i>&nbsp;ความเสี่ยงทางธุรกิจ<br />
+                                &nbsp;&nbsp; (FS Score)<br />
+                                <i class="fa fa-circle"
+                                   style="font-size: 10px;color: #36a2eb;"></i>&nbsp;ความสามารถในการดำเนินธุรกิจ<br />
+                                <hr>
+                                <strong>ค่าเฉลี่ยอยู่ในเกณฑ์: ดี</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row  mb-3 mt-3">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <div class="d-flex justify-content-between">
+                            <div class="font-topic">
+                                ข้อมูลการเงิน
+                            </div>
+                            <div class="font-gary">(ณ วันที่ 19 ม.ค. 2664)</div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="row mb-3 mt-3">
+                            <div class="col-12 col-md-6 borderheaber">
+                                <div class="d-flex justify-content-center">
+                                    <div class="font-topic mt-3">
+                                        รายได้รวม
+                                        <span class="font-baht"> (บาท)</span>
+                                    </div>
+                                    <div class="font-arrow-circle pt-3 pl-2 pr-2">
+                                        <i class="fa fa-arrow-circle-up font-green"></i>
+                                    </div>
+                                    <div class="text-right mt-2">
+                                        <span class="font-big">170,321,399.01</span><br />
+                                        <div class="font-green">+25.67 (12.25%)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex justify-content-center">
+                                    <div class="font-topic mt-3">
+                                        กำไรสุทธิ<span class="font-baht"> (บาท)</span>
+                                    </div>
+                                    <div class="font-arrow-circle pt-3 pl-2 pr-2">
+                                        <i class="fa fa-arrow-circle-up font-green"></i>
+                                    </div>
+                                    <div class="text-right mt-2">
+                                        <span class="font-big">107,669,671.29</span><br />
+                                        <div class="font-green">+25.67 (12.25%)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-4 pr-0">
+                                <table class="table table-borderless borders" style="height: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">
+                                                <div class="d-flex justify-content-between pr-2">
+                                                    <div class="text-left">
+                                                        <div class="font-header">กำไรสุทธิ/รายได้รวม</div>
+                                                        <div class="font-lighter">ปีพ.ศ. 2563</div>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <div class="font-header-num">
+                                                            <i class="fa fa-arrow-up font-green"></i>
+                                                            &nbsp;
+                                                            205.70<br />
+                                                        </div>
+                                                        <div class="font-green font-lighter">+25.67 (12.25%)</div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="33%">ปีพ.ศ. 2562</td>
+                                            <td width="33%">
+                                                <i class="fa fa-arrow-down font-red"></i>&nbsp;
+                                                180.13
+                                            </td>
+                                            <td width="33%" class="font-red text-right pr-4">-8.70 (8.9%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ปีพ.ศ. 2561</td>
+                                            <td>
+                                                <i class="fa fa-arrow-up font-green"></i>&nbsp;
+                                                180.13
+                                            </td>
+                                            <td class="font-green text-right pr-4">+25.35 (12.25%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ปีพ.ศ. 2560</td>
+                                            <td>
+                                                <i class="fa fa-arrow-up font-green"></i>&nbsp;
+                                                180.13
+                                            </td>
+                                            <td class="font-green text-right pr-4">+25.35 (12.25%)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="col-12 col-md-4 p-0">
+                                <table class="table table-borderless borders" style="height: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">
+                                                <div class="d-flex justify-content-between pr-2">
+                                                    <div class="text-left">
+                                                        <div class="font-header">D/E Ration</div>
+                                                        <div class="font-lighter">ปีพ.ศ. 2563</div>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <div class="font-header-num">
+                                                            <i class="fa fa-arrow-up font-green"></i>
+                                                            &nbsp;
+                                                            0.10<br />
+                                                        </div>
+                                                        <div class="font-green font-lighter">
+                                                            +0.04 (2.25%)
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="33%">ปีพ.ศ. 2562</td>
+                                            <td width="33%">
+                                                <i class="fa fa-arrow-up font-green"></i>&nbsp;
+                                                0.41
+                                            </td>
+                                            <td width="33%" class="font-green text-right pr-4">+0.31 (12.24%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ปีพ.ศ. 2561</td>
+                                            <td>
+                                                <i class="fa fa-arrow-up font-green"></i>&nbsp;
+                                                1.41
+                                            </td>
+                                            <td class="font-green text-right pr-4">+1.00 (10.08%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ปีพ.ศ. 2560</td>
+                                            <td>
+                                                <i class="fa fa-arrow-down font-red"></i>&nbsp;
+                                                1.32
+                                            </td>
+                                            <td class="font-red text-right pr-4">-0.10 (12.25%)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="col-12 col-md-4 pl-0">
+                                <table class="table table-borderless borders"
+                                       style="height: 100%;border-right: none !important;">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">
+                                                <div class="d-flex justify-content-between pr-2">
+                                                    <div class="text-left">
+                                                        <div class="font-header">Current Ration</div>
+                                                        <div class="font-lighter"> ปีพ.ศ. 2563</div>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <div class="font-header-num">
+                                                            <i class="fa fa-arrow-down font-red"></i>
+                                                            &nbsp;
+                                                            3.71<br />
+                                                        </div>
+                                                        <div class="font-red font-lighter">
+                                                            -1.17 (8.9%)
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="33%">ปีพ.ศ. 2562</td>
+                                            <td width="33%">
+                                                <i class="fa fa-arrow-down font-red"></i>&nbsp;
+                                                4.88
+                                            </td>
+                                            <td width="33%" class="font-red text-right pr-4">-5.50 (4.4%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="33%">ปีพ.ศ. 2561</td>
+                                            <td width="33%">
+                                                <i class="fa fa-arrow-down font-red"></i>&nbsp;
+                                                5.38
+                                            </td>
+                                            <td width="33%" class="font-red text-right pr-4">-1.50 (8.9%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="33%">ปีพ.ศ. 2560</td>
+                                            <td width="33%">
+                                                <i class="fa fa-arrow-up font-green"></i>&nbsp;
+                                                22.07
+                                            </td>
+                                            <td width="33%" class="font-green text-right pr-4">+12.67 (12.25%)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row  mb-3 mt-3">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white" style="border-bottom: none;">
+                        <div class="font-topic">ข้อมูลผลิตภัณฑ์ที่ถูกนำเสนอ</div>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table tabledetail" style="overflow-x:auto;" id="table">
+                            <thead>
+                                <tr>
+                                    <th>ลำดับ</th>
+                                    <th class="text-left">ชื่อผลิตภัณฑ์</th>
+                                    <th>เวอร์ชั่น</th>
+                                    <th>สนใจผลิตภัณฑ์</th>
+                                    <th>ผ่านการพิจารณา</th>
+                                    <th>ข้อมูลผลิตภัณฑ์</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*<tr>
+                                    <td>1</td>
+                                    <td class="text-left">บริการประกันส่งออกระยะกลางและระยะยาว</td>
+                                    <td>Version 1</td>
+                                    <td>
+                                        <button type="button" class="btn btnproduct">สนใจ</button>
+                                    </td>
+                                    <td class="font-green tbpass text-left">
+                                        <span class="font-topic pr-1">
+                                            <i class="fa fa-check-circle"></i>
+                                        </span>ผ่าน
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btneye">
+                                            <i class="fa fa-eye text-muted"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="text-left">EXIM sMart Musrance</td>
+                                    <td>Version 2</td>
+                                    <td>
+                                        <button type="button" class="btn btnproduct">สนใจ</button>
+                                    </td>
+                                    <td class="font-red tbpass text-left">
+                                        <span class="font-topic pr-1">
+                                            <i class="fa fa-times-circle"></i>
+                                        </span>ไม่ผ่าน
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btneye">
+                                            <i class="fa fa-eye text-muted"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="text-left">บริการประกันความเสี่ยงการลงทุน</td>
+                                    <td>Version 2</td>
+                                    <td>
+                                        <button type="button" class="btn btnproduct">สนใจ</button>
+                                    </td>
+                                    <td class="font-red tbpass text-left">
+                                        <span class="font-topic pr-1">
+                                            <i class="fa fa-times-circle"></i>
+                                        </span>ไม่ผ่าน
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btneye">
+                                            <i class="fa fa-eye text-muted"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="text-left">สินเชื่อเพื่อขยายกำลังการผลิต</td>
+                                    <td>Version 4</td>
+                                    <td>
+                                        <button type="button" class="btn btnproduct">สนใจ</button>
+                                    </td>
+                                    <td class="font-green tbpass text-left">
+                                        <span class="font-topic pr-1">
+                                            <i class="fa fa-check-circle"></i>
+                                        </span>ผ่าน
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btneye">
+                                            <i class="fa fa-eye text-muted"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                แสดงรายการ &nbsp;
+                                                <select class="form-select rounded btnselectpage">
+                                                    <option selected>10</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                1 - 4 จาก 4
+                                                <i class="fa fa-chevron-left text-muted"></i>
+                                                <span class="btnpage"> 1 </span>
+                                                <i class="fa fa-chevron-right text-muted"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>*@
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="data2">ภาพรวม</div>
+    <div class="container-fluid" id="data3">งบการเงิน</div>
+
+    <script>
+    $(document).ready(function () {
+        datatable();
+        $('#data2').hide();
+        $('#data3').hide();
+    });
+
+    function datatable() {
+        console.log('test');
+        $('#table').DataTable({
+            "ajax": {
+                url: '/Home/GetTable',
+                type: 'GET',
+                "dataSrc": ''
+            },
+            "bInfo": false,
+            "bPaginate": false,
+            searching: false,
+            ordering: false,
+            columns: [
+                {
+                    data: 'id',
+                    className: 'text-centesy align-middle',
+                },
+                {
+                    data: 'name',
+                    className: 'text-left align-middle'
+                },
+                {
+                    data: 'version',
+                    className: 'text-center align-middle'
+                },
+                {
+                    data: 'id',
+                    className: 'text-center align-middle',
+                    render: function (data, type, row, meta) {
+                        return "<button type='button' class='btn btnproduct'>สนใจ</button>";
+                    }
+                },
+                {
+                    data: 'approve',
+                    className: 'text-left align-middle',
+                    render: function (data, type, row, meta) {
+                        if (data == 1) {
+                            return "<div class='font-green tbpass'><span class='font-topic pr-1'><i class='fa fa-check-circle'></i></span > ผ่าน</div>";
+                        }
+                        else {
+                            return "<div class='font-red tbpass'><span class='font-topic pr-1'><i class='fa fa-times-circle'></i></span > ไม่ผ่าน</div>";
+                        }
+                    }
+                },
+                {
+                    data: 'id',
+                    className: 'text-center align-middle',
+                    render: function (data, type, row, meta) {
+                        return "<button type='button' class='btneye'><i class='fa fa-eye text-muted'></i ></button >";
+                    }
+                }
+            ]
+        });
+    }
+    function page(data) {
+        if (data == 1) {
+            $('#nav1').addClass('active');
+            $('#nav2').removeClass('active');
+            $('#nav3').removeClass('active');
+            $('#data').show();
+            $('#data2').hide();
+            $('#data3').hide();
+        } else if (data == 2) {
+            $('#nav1').removeClass('active');
+            $('#nav2').addClass('active');
+            $('#nav3').removeClass('active');
+            $('#data2').show();
+            $('#data').hide();
+            $('#data3').hide();
+        }
+        else {
+            $('#nav1').removeClass('active');
+            $('#nav2').removeClass('active');
+            $('#nav3').addClass('active');
+            $('#data3').show();
+            $('#data').hide();
+            $('#data2').hide();
+        }
+    }
+
+    Highcharts.chart('charts', {
+        chart: {
+            polar: true,
+            width: 300,
+            height: 250,
+            type: 'line'
+        },
+
+        navigation: {
+            buttonOptions: {
+                enabled: false
+            }
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        title: {
+            text: '',
+            x: -80,
+        },
+
+        pane: {
+            size: '90%'
+        },
+
+        xAxis: {
+            categories: ['ส่วนที่ 1', 'ส่วนที่ 2', 'ส่วนที่ 4', 'ส่วนที่ 5',
+                'ส่วนที่ 6', 'ส่วนที่ 7', 'ส่วนที่ 8'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0
+        },
+
+        legend: {
+            align: 'right',
+            verticalAlign: 'middle',
+            layout: 'vertical',
+            enabled: false
+        },
+
+        series: [{
+            type: 'area',
+            color: '#ff3a62',
+            name: 'Risk',
+            data: [1, 2, 3, 4, 5, 6, 7],
+        }, {
+            type: 'area',
+            color: '#36a2eb',
+            name: 'Risk',
+            data: [1, 8, 2, 7, 3, 6, 4],
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 300
+                },
+                chartOptions: {
+                    legend: {
+                        align: 'center',
+                        verticalAlign: 'bottom',
+                        layout: 'horizontal'
+                    },
+                    pane: {
+                        size: '90%'
+                    }
+                }
+            }]
+        }
+
+    });
+    </script>

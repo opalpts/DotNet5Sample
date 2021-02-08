@@ -20,6 +20,7 @@ namespace DotNet5Sample.Core.Context
         {
             this.configuration = configuration;
         }
+        public virtual DbSet<Offer> Offer { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderDetail> OrderDetial { get; set; }
@@ -32,6 +33,17 @@ namespace DotNet5Sample.Core.Context
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Offer>(entity =>
+            {
+                entity.HasKey(e => e.id);
+                entity.ToTable("offer", "dbo");
+                entity.Property(e => e.id)
+                    .HasMaxLength(50);
+                entity.Property(e => e.name).HasMaxLength(100);
+                entity.Property(e => e.version).HasMaxLength(100);
+                entity.Property(e => e.approve).HasMaxLength(100);
+            });
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>(entity =>
             {

@@ -1,6 +1,7 @@
 .vs/
 DotNet5Sample/bin
 DotNet5Sample/obj
-
+DotNet5Sample/wwwroot/.sass-cache
 DotNet5Sample.Core/bin
+DotNet5Sample.Core/bin/Debug
 DotNet5Sample.Core/obj
