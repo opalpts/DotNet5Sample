@@ -24,13 +24,8 @@ namespace DotNet5Sample.Controllers
         }
         public ActionResult GetById(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var data = _product.GetById(id);
-            if (data == null)
+            if (data is null)
             {
                 return NotFound();
             }
