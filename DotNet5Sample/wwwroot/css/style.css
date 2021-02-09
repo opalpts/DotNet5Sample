@@ -24,19 +24,13 @@
   font-size: 18px;
   font-weight: bold; }
 
-.font-header-num {
+.font-num {
   font-size: 25px;
   font-weight: bold; }
 
 .font-bell {
   color: white;
   font-size: 10px; }
-
-.font-lighter {
-  font-weight: lighter; }
-
-.font-bold {
-  font-weight: bold; }
 
 .font-gary {
   color: #9a9da4; }
@@ -105,7 +99,8 @@
 .btnuser {
   border: 1px solid #dee2e6;
   border-radius: 50px;
-  padding: 8px !important; }
+  padding: 8px !important;
+  background-color: white; }
 
 .column-detail {
   float: left;
@@ -121,13 +116,15 @@
   padding-left: 10px !important; }
 
 .table thead th {
+  background-color: #f8f8f9;
   border-bottom: 1px solid #dee2e6 !important; }
 
 .tabledetail thead {
   background-color: #f8f8f9; }
   .tabledetail thead th {
     border-top: none;
-    text-align: center; }
+    text-align: center;
+    border-bottom: none !important; }
 .tabledetail tbody td {
   text-align: center;
   vertical-align: middle !important; }
@@ -173,5 +170,34 @@
 
 .highcharts-data-table tr:hover {
   background: #f1f7ff; }
+
+.dataTables_length {
+  margin-top: 20px;
+  text-align: left;
+  float: left; }
+
+.dataTables_info {
+  margin-top: 20px;
+  text-align: right;
+  float: right; }
+
+.dataTables_paginate {
+  margin-top: 20px;
+  text-align: right;
+  float: right;
+  padding-right: 20px; }
+  .dataTables_paginate a {
+    color: #9a9da4; }
+
+.current {
+  background-color: #0a53c1;
+  border-radius: 50%;
+  color: white !important;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px; }
 
 /*# sourceMappingURL=style.css.map */

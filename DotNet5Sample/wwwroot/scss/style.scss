@@ -81,6 +81,7 @@
         border: 1px solid #dee2e6;
         border-radius: 50px;
         padding: 8px !important;
+        background-color:white;
     }
 
     //column
@@ -101,31 +102,33 @@
         padding-left: 10px !important;
     }
 
-    .table {
-        thead {
-            th{
-                border-bottom: 1px solid #dee2e6 !important;
-            }
-        }
-    }
-
-    .tabledetail {
-        thead {
+.table {
+    thead {
+        th {
             background-color: $gary-background;
-
-            th {
-                border-top: none;
-                text-align: center;
-            }
-        }
-
-        tbody {
-            td {
-                text-align: center;
-                vertical-align: middle !important;
-            }
+            border-bottom: 1px solid #dee2e6 !important;
         }
     }
+}
+
+.tabledetail {
+    thead {
+        background-color: $gary-background;
+
+        th {
+            border-top: none;
+            text-align: center;
+            border-bottom: none !important;
+        }
+    }
+
+    tbody {
+        td {
+            text-align: center;
+            vertical-align: middle !important;
+        }
+    }
+}
 
     .table-borderless {
         td{
@@ -180,5 +183,41 @@
 
     .highcharts-data-table tr:hover {
         background: #f1f7ff;
+    }
+
+
+    .dataTables_length{
+        margin-top: 20px;
+        text-align: left;
+        float:left;
+    }
+
+    .dataTables_info{
+        margin-top: 20px;
+        text-align:right;
+        float: right;
+    }
+
+    .dataTables_paginate{
+        margin-top: 20px;
+        text-align:right;
+        float: right;
+        padding-right: 20px;
+        a{
+            color: $gary;
+        }
+        
+    }
+
+    .current{
+        background-color: $blue;
+        border-radius: 50%;
+        color: $white !important;
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        text-align: center;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
