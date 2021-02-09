@@ -213,7 +213,7 @@
                                                 <div class="d-flex justify-content-between pl-2 pr-2">
                                                     <div class="text-left ">
                                                         <div class="font-header">กำไรสุทธิ/รายได้รวม</div>
-                                                        <div class="font-weight-light">ปีพ.ศ. 2563</div>
+                                                        <div class="font-light">ปีพ.ศ. 2563</div>
                                                     </div>
                                                     <div class="text-right">
                                                         <div class="font-num">
@@ -221,7 +221,7 @@
                                                             &nbsp;
                                                             205.70<br />
                                                         </div>
-                                                        <div class="font-green font-weight-light">+25.67 (12.25%)</div>
+                                                        <div class="font-green font-light">+25.67 (12.25%)</div>
                                                     </div>
                                                 </div>
                                             </th>
@@ -264,7 +264,7 @@
                                                 <div class="d-flex justify-content-between pl-2 pr-2">
                                                     <div class="text-left">
                                                         <div class="font-header">D/E Ration</div>
-                                                        <div class="font-weight-light">ปีพ.ศ. 2563</div>
+                                                        <div class="font-light">ปีพ.ศ. 2563</div>
                                                     </div>
                                                     <div class="text-right">
                                                         <div class="font-num">
@@ -272,7 +272,7 @@
                                                             &nbsp;
                                                             0.10<br />
                                                         </div>
-                                                        <div class="font-green font-weight-light">
+                                                        <div class="font-green font-light">
                                                             +0.04 (2.25%)
                                                         </div>
                                                     </div>
@@ -318,7 +318,7 @@
                                                 <div class="d-flex justify-content-between pl-2 pr-2">
                                                     <div class="text-left">
                                                         <div class="font-header">Current Ration</div>
-                                                        <div class="font-weight-light"> ปีพ.ศ. 2563</div>
+                                                        <div class="font-light"> ปีพ.ศ. 2563</div>
                                                     </div>
                                                     <div class="text-right">
                                                         <div class="font-num">
@@ -326,7 +326,7 @@
                                                             &nbsp;
                                                             3.71<br />
                                                         </div>
-                                                        <div class="font-red font-weight-light">
+                                                        <div class="font-red font-light">
                                                             -1.17 (8.9%)
                                                         </div>
                                                     </div>
@@ -375,7 +375,7 @@
                         <div class="font-topic">ข้อมูลผลิตภัณฑ์ที่ถูกนำเสนอ</div>
                     </div>
                     <div class="card-body p-0">
-                        <table class="table tabledetail mb-0" id="table">
+                        <table class="table tabledetail mb-0" style="width:100%" id="table">
                             <thead>
                                 <tr>
                                     <th>ลำดับ</th>
@@ -536,10 +536,9 @@
                 "paginate": {
                     "previous": "<",
                     "next": ">",
-                    //"current": "<span class='btnpage text-center'>_PAGE_</span>"
                 },
                 "info": '<div class="pr-4">_START_ - _END_ จาก _TOTAL_</div>',
-                "lengthMenu": '<div class="pl-4">แสดงรายการ <select class="form-select rounded btnselectpage">' +
+                "lengthMenu": '<div class="pl-4">แสดงรายการ &nbsp;<select class="form-select rounded btnselectpage">' +
                     '<option value="10">10</option>' +
                     '<option value="20">20</option>' +
                     '<option value="30">30</option>' +
@@ -551,22 +550,22 @@
             columns: [
                 {
                     data: 'id',
-                    width: '120px',
+                    //width: '120px',
                     className: 'text-centesy align-middle',
                 },
                 {
                     data: 'name',
-                    width: '422px',
+                    //width: '422px',
                     className: 'text-left align-middle'
                 },
                 {
                     data: 'version',
-                    width: '200px',
+                    //width: '200px',
                     className: 'text-center align-middle'
                 },
                 {
                     data: 'id',
-                    width: '200px',
+                    //width: '200px',
                     className: 'text-center align-middle',
                     render: function (data, type, row, meta) {
                         return "<button type='button' class='btn btnproduct'>สนใจ</button>";
@@ -587,7 +586,7 @@
                 },
                 {
                     data: 'id',
-                    width: '200px',
+                    //width: '200px',
                     className: 'text-center align-middle',
                     render: function (data, type, row, meta) {
                         return "<button type='button' class='btneye'><i class='fa fa-eye text-muted'></i ></button >";
