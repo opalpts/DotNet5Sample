@@ -382,7 +382,7 @@
                                     <th>ข้อมูลผลิตภัณฑ์</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody style="border-bottom: 1px solid #dee2e6 !important;">
                                 @*<tr>
                                     <td>1</td>
                                     <td class="text-left">บริการประกันส่งออกระยะกลางและระยะยาว</td>
@@ -478,6 +478,25 @@
                                 </tr>*@
                             </tbody>
                         </table>
+                        <div class="col-12 mb-3">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    แสดงรายการ &nbsp;
+                                    <select class="form-select rounded btnselectpage">
+                                        <option selected>10</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    1 - 4 จาก 4
+                                    <i class="fa fa-chevron-left text-muted"></i>
+                                    <span class="btnpage text-center"> 1 </span>
+                                    <i class="fa fa-chevron-right text-muted"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -495,7 +514,6 @@
     });
 
     function datatable() {
-        console.log('test');
         $('#table').DataTable({
             "ajax": {
                 url: '/Home/GetTable',
