@@ -139,8 +139,40 @@
   border-right: 1px solid #dee2e6 !important;
   border-top: 1px solid #dee2e6 !important; }
 
-.borderheaber {
-  border-right: 2px dashed #dee2e6 !important; }
+/*.borderheaber{
+    border-right: 2px dashed #dee2e6 !important;
+}*/
+.dataTables_length {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  float: left; }
+
+.dataTables_info {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: right;
+  float: right; }
+
+.dataTables_paginate {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: right;
+  float: right;
+  padding-right: 20px; }
+  .dataTables_paginate a {
+    color: #9a9da4; }
+
+.current {
+  background-color: #0a53c1;
+  border-radius: 50%;
+  color: white !important;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px; }
 
 .highcharts-figure, .highcharts-data-table table {
   min-width: 200px;
@@ -174,36 +206,40 @@
 .highcharts-data-table tr:hover {
   background: #f1f7ff; }
 
-.dataTables_length {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: left;
-  float: left; }
+@media (min-width: 700px) {
+  .table1 {
+    padding-right: 0; }
 
-.dataTables_info {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: right;
-  float: right; }
+  .table2 {
+    padding: 0; }
 
-.dataTables_paginate {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: right;
-  float: right;
-  padding-right: 20px; }
-  .dataTables_paginate a {
-    color: #9a9da4; }
+  .table3 {
+    padding-left: 0; }
 
-.current {
-  background-color: #0a53c1;
-  border-radius: 50%;
-  color: white !important;
-  width: 25px;
-  height: 25px;
-  display: inline-block;
-  text-align: center;
-  margin-left: 5px;
-  margin-right: 5px; }
+  .borderheaber {
+    border-right: 2px dashed #dee2e6 !important; } }
+@media (max-width: 1024px) {
+  .header-th {
+    font-size: 10px;
+    font-weight: bold; }
+
+  .font-header {
+    font-size: 10px;
+    font-weight: bold; }
+
+  .font-num {
+    font-size: 10px;
+    font-weight: bold; }
+
+  .font-topic {
+    font-size: 15px;
+    font-weight: bold; }
+
+  .font-arrow-circle {
+    font-size: 30px; }
+
+  .font-big {
+    font-size: 20px;
+    font-weight: bold; } }
 
 /*# sourceMappingURL=style.css.map */

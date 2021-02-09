@@ -102,33 +102,33 @@
         padding-left: 10px !important;
     }
 
-.table {
-    thead {
-        th {
+    .table {
+        thead {
+            th {
+                background-color: $gary-background;
+                border-bottom: 1px solid #dee2e6 !important;
+            }
+        }
+    }
+
+    .tabledetail {
+        thead {
             background-color: $gary-background;
-            border-bottom: 1px solid #dee2e6 !important;
+
+            th {
+                border-top: none;
+                text-align: center;
+                border-bottom: none !important;
+            }
+        }
+
+        tbody {
+            td {
+                text-align: center;
+                vertical-align: middle !important;
+            }
         }
     }
-}
-
-.tabledetail {
-    thead {
-        background-color: $gary-background;
-
-        th {
-            border-top: none;
-            text-align: center;
-            border-bottom: none !important;
-        }
-    }
-
-    tbody {
-        td {
-            text-align: center;
-            vertical-align: middle !important;
-        }
-    }
-}
 
     .table-borderless {
         td{
@@ -141,8 +141,47 @@
         border-top: 1px solid #dee2e6 !important;
     }
     
-    .borderheaber{
+    /*.borderheaber{
         border-right: 2px dashed #dee2e6 !important;
+    }*/
+
+    //datatable
+    .dataTables_length {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+        float: left;
+    }
+
+    .dataTables_info {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: right;
+        float: right;
+    }
+
+    .dataTables_paginate {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: right;
+        float: right;
+        padding-right: 20px;
+
+        a {
+            color: $gary;
+        }
+    }
+
+    .current {
+        background-color: $blue;
+        border-radius: 50%;
+        color: $white !important;
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        text-align: center;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
     //chart
@@ -185,42 +224,50 @@
         background: #f1f7ff;
     }
 
-
-    .dataTables_length{
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align: left;
-        float:left;
-    }
-
-    .dataTables_info{
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align:right;
-        float: right;
-    }
-
-    .dataTables_paginate{
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align:right;
-        float: right;
-        padding-right: 20px;
-        a{
-            color: $gary;
+    @media (min-width: 700px) { //มากกว่า700ทำข้างล่าง
+        .table1 {
+            padding-right: 0;
         }
-        
+        .table2 {
+            padding: 0;
+        }
+
+        .table3 {
+            padding-left: 0;
+        }
+        .borderheaber {
+            border-right: 2px dashed #dee2e6 !important;
+        }
     }
 
-    .current{
-        background-color: $blue;
-        border-radius: 50%;
-        color: $white !important;
-        width: 25px;
-        height: 25px;
-        display: inline-block;
-        text-align: center;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
+    @media (max-width: 1024px){  //น้อยกว่า1024ทำข้างล่าง
+        .header-th {
+            font-size: 10px;
+            font-weight: bold;
+        }
 
+        .font-header {
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .font-num {
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .font-topic {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .font-arrow-circle {
+            font-size: 30px;
+        }
+
+        .font-big {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+    
